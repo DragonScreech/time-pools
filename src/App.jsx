@@ -79,7 +79,7 @@ const App = () => {
     console.log(notSelectedPools)
   }, [pools, notSelectedPools])
 
-  const poolIntervals = {}
+  // const poolIntervals = {}
 
   function startPoolTimer(poolIndex) {
     if (intervalsRef.current[poolIndex]) return
@@ -236,7 +236,7 @@ function NotSelectedPool({ name, size, color, x, y, onHoverEnd, onHoverStart, ho
           className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full cursor-pointer pointer-events-none"
           style={{ userSelect: 'none' }}
         >
-          {hover == index ? name : name[0]}
+          {hover === index ? name : name[0]}
         </div>
       </motion.div>
     </React.Fragment>
