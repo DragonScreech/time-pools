@@ -1,6 +1,5 @@
 import React, { use, useEffect, useMemo, useRef, useState } from 'react'
 import { hover, motion, noop } from 'framer-motion'
-import timeUpSound from "../audio.mp3"
 
 localStorage.removeItem("pools")
 
@@ -31,8 +30,6 @@ const App = () => {
   const notSelectedPools = pools.filter(item => !item.selected);
 
   const intervalsRef = useRef({})
-
-  const timeUpSoundRef = useRef(null)
 
 
   // satellites keep original index in `pools`
@@ -83,11 +80,6 @@ const App = () => {
   }, [pools])
 
   const poolIntervals = {}
-  const playSound = () => {
-    if (audioRef.current) {
-      audioRef.current.play();
-    }
-  };
 
   function startPoolTimer(poolIndex) {
     if (intervalsRef.current[poolIndex]) return
@@ -161,7 +153,6 @@ const App = () => {
 
   return (
     <div className="flex justify-center items-center w-screen h-screen relative bg-slate-900">
-      <audio ref={timeUpSoundRef} src={mySoundFile} />
       {/* center */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50">
         {pools.map((pool, i) => {
