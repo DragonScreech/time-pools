@@ -1,5 +1,5 @@
-import React, { use, useEffect, useMemo, useRef, useState } from 'react'
-import { hover, motion, noop } from 'framer-motion'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
+import { motion, } from 'framer-motion'
 
 localStorage.removeItem("pools")
 
@@ -77,7 +77,7 @@ const App = () => {
   useEffect(() => {
     console.log(pools)
     console.log(notSelectedPools)
-  }, [pools])
+  }, [pools, notSelectedPools])
 
   const poolIntervals = {}
 
@@ -102,10 +102,10 @@ const App = () => {
     }, 1000)
   }
 
-  function stopPoolTimer(poolIndex) {
-    clearInterval(poolIntervals[poolIndex])
-    delete poolIntervals[poolIndex]
-  }
+  // function stopPoolTimer(poolIndex) {
+  //   clearInterval(poolIntervals[poolIndex])
+  //   delete poolIntervals[poolIndex]
+  // }
 
   function timeToString(totalSeconds) {
     const hours = Math.floor(totalSeconds / 3600);
@@ -243,20 +243,20 @@ function NotSelectedPool({ name, size, color, x, y, onHoverEnd, onHoverStart, ho
   );
 }
 
-function DebugDot({ x, y }) {
-  return (
-    <motion.div
-      className="absolute bg-white rounded-full -translate-x-1/2 -translate-y-1/2"
-      style={{
-        width: "6px",
-        height: "6px",
-        boxShadow: "0 0 10px rgba(255,255,255,0.8)",
-        zIndex: 9999,
-      }}
-      animate={{ x, y }}
-    />
-  );
-}
+// function DebugDot({ x, y }) {
+//   return (
+//     <motion.div
+//       className="absolute bg-white rounded-full -translate-x-1/2 -translate-y-1/2"
+//       style={{
+//         width: "6px",
+//         height: "6px",
+//         boxShadow: "0 0 10px rgba(255,255,255,0.8)",
+//         zIndex: 9999,
+//       }}
+//       animate={{ x, y }}
+//     />
+//   );
+// }
 
 
 
